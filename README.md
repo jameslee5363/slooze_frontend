@@ -34,6 +34,18 @@ $ Then, open .env in a text editor and update the values:
   DSN=mongodb://localhost/slooze
   SESSION_SECRET=change_me
 
+# 4 Installing MongoDB locally
+
+### macOS (Homebrew)
+
+```bash
+# Install MongoDB Community Edition via Homebrew
+brew tap mongodb/brew
+brew install mongodb-community
+
+# Start MongoDB as a service
+brew services start mongodb/brew/mongodb-community
+
 # 4 — Run the app with hot-reload
 $ node app.mjs                   # uses `node --watch app.mjs`
 
