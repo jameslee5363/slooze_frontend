@@ -21,8 +21,8 @@ A lightweight **Express + Handlebars + MongoDB** app for managing products, auth
 
 ```bash
 # 1 — Clone your repo
-$ git clone https://github.com/jameslee5363/slooze_frontend.git
-$ cd slooze_frontend
+$ git clone https://github.com/jameslee5363/sloozefrontend.git
+$ cd sloozefrontend
 $ cd src
 
 # 2 — Install dependencies
