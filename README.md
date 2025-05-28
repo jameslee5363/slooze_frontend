@@ -30,9 +30,9 @@ $ npm install
 
 # 3 — Configure environment variables
 $ cp .env.example .env          # if you create an example file
-# OR create it manually:
-$ echo "DSN=mongodb://localhost/slooze" >> .env
-$ echo "SESSION_SECRET=change_me"       >> .env
+$ Then, open .env in a text editor and update the values:
+  DSN=mongodb://localhost/slooze
+  SESSION_SECRET=change_me
 
 # 4 — Run the app with hot-reload
 $ node app.mjs                   # uses `node --watch app.mjs`
