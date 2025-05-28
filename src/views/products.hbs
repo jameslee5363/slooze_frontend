@@ -1,0 +1,24 @@
+<h2>Products</h2>
+<ul>
+  {{#each products}}
+    <li>
+      {{name}} - ${{price}}
+      <form method="POST" action="/products/{{_id}}?_method=PUT">
+        <input type="text" name="name" value="{{name}}">
+        <input type="number" name="price" value="{{price}}">
+        <input type="text" name="description" value="{{description}}">
+        <input type="checkbox" name="inStock" {{#if inStock}}checked{{/if}}>
+        <button type="submit">Update</button>
+      </form>
+    </li>
+  {{/each}}
+</ul>
+
+<h3>Add New Product</h3>
+<form method="POST" action="/products">
+  <input name="name" placeholder="Name" required>
+  <input name="price" type="number" placeholder="Price" required>
+  <input name="description" placeholder="Description">
+  <label><input type="checkbox" name="inStock" checked> In Stock</label>
+  <button type="submit">Add</button>
+</form>

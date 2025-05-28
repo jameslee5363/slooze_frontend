@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+
+  <!-- Optional CSS -->
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <h1>{{title}}</h1>
+
+    <nav>
+      <a href="/">Home</a>
+      <a href="/products">Products</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/register">Register</a>
+      {{#if user}}
+        <a href="/logout">Logout</a>
+      {{else}}
+        <a href="/login">Login</a>
+      {{/if}}
+    </nav>
+  </header>
+  <main>
+    {{{body}}}
+  </main>
+
+  <footer>
+    <p>&copy; {{year}} Commodity Dashboard</p>
+  </footer>
+  <button id="theme-toggle">Toggle Light/Dark Mode</button>
+
+  <script>
+  const toggleButton = document.getElementById('theme-toggle');
+
+  // Apply saved theme on load
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.body.classList.add(savedTheme);
+
+  toggleButton.addEventListener('click', () => {
+    const currentTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    document.body.classList.remove(currentTheme);
+    document.body.classList.add(newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
+</script>
+</body>
+</html>

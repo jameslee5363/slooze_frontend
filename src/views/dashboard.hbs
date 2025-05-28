@@ -1,0 +1,32 @@
+<h1 class="title">Dashboard</h1>
+
+<section class="cards">
+  <div class="card">Total SKUs<br><span>{{totalProducts}}</span></div>
+  <div class="card">Units in stock<br><span>{{totalInStock}}</span></div>
+  <div class="card">Avg Price<br><span>${{avgPrice}}</span></div>
+  <div class="card">Price Range<br><span>${{minPrice}} – ${{maxPrice}}</span></div>
+</section>
+
+<canvas id="catChart" height="120"></canvas>
+
+<h2>Recent updates</h2>
+<ul>
+  {{#each updates}}
+    <li>{{this.updatedAt}} — {{this.name}} ({{this.quantity}} units @ ${{this.price}})</li>
+  {{/each}}
+</ul>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const catData = {{catData}};
+  const labels = catData.map(d => d._id);
+  const values = catData.map(d => d.value);
+
+  new Chart(document.getElementById('catChart'),{
+    type:'bar',
+    data:{ labels,
+      datasets:[{ label:'Units by category', data:values }]
+    },
+    options:{ responsive:true }
+  });
+</script>
